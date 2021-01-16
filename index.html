@@ -431,6 +431,22 @@
             </li>
           </ul>
         </div>
+        <div class="mailing-form">
+          <label for="mailing">Подпишитесь на рассылку</label>
+          <input
+            type="email"
+            name="mailing"
+            id="mailing"
+            placeholder="E-mail"
+          />
+        </div>
+
+        <button class="mailing-button" type="submit">
+          Подписаться
+          <svg class="icon-send">
+            <use href="./images/symbol-defs.svg#icon-icon-send"></use>
+          </svg>
+        </button>
       </div>
     </footer>
 
@@ -442,9 +458,76 @@
             <use href="./images/symbol-defs.svg#icon-close-black-18dp"></use>
           </svg>
         </button>
+
+        <form class="form js-form" autocomplete="off">
+          <h2 class="form-title">Оставьте свои данные, мы вам перезвоним</h2>
+          <div class="form-field">
+            <label for="name">Имя</label>
+
+            <input type="text" name="name" id="name" />
+            <svg class="form-icon" width="18px" height="18px">
+              <use href="./images/symbol-defs.svg#icon-person-black"></use>
+            </svg>
+          </div>
+
+          <div class="form-field">
+            <label for="tel">Телефон</label>
+
+            <input type="tel" name="tel" id="tel" />
+            <svg class="form-icon" width="18px" height="18px">
+              <use href="./images/symbol-defs.svg#icon-phone-black"></use>
+            </svg>
+          </div>
+
+          <div class="form-field">
+            <label for="mail">Почта</label>
+
+            <input type="email" name="mail" id="mail" />
+            <svg class="form-icon" width="18px" height="18px">
+              <use href="./images/symbol-defs.svg#icon-email-black"></use>
+            </svg>
+          </div>
+
+          <div class="form-field">
+            <label for="comments">Комментарий</label>
+            <textarea
+              name="comments"
+              id="comments"
+              rows="10"
+              placeholder="Введите текст"
+            ></textarea>
+          </div>
+
+          
+          <label class="agreement-checkbox" for="agreement">
+            <input
+              type="checkbox"
+              name="agreement"
+              value="agreement"
+              id="agreement"
+              class="checkbox" />
+            <span class="checkbox-icon">Соглашаюсь с рассылкой и принимаю <a  class="agreement-license" href="#">Условия договора</a></span>
+           
+         
+
+          <button class="form-button" type="submit">Отправить</button>
+        </form>
       </div>
     </div>
 
     <script src="./js/modal.js"></script>
+    <script>
+      (() => {
+        document.querySelector('.js-form').addEventListener('submit', e => {
+          e.preventDefault();
+
+          new FormData(e.currentTarget).forEach((value, name) =>
+            console.log(`${name}: ${value}`),
+          );
+
+          e.currentTarget.reset();
+        });
+      })();
+    </script>
   </body>
 </html>
